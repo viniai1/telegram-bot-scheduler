@@ -15,4 +15,4 @@ jobs:
           curl -X POST \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
             -H "Content-Type: application/json" \
-            "${{ secrets.SUPABASE_URL }}/functions/v1/process_scheduled_messages_fixed_2025_10_31_15_13"
+            "${{ secrets.SUPABASE_URL }}/functions/v1/process_scheduled_messages_smart_2025_10_31_15_13"
