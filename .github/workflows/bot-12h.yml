@@ -1,8 +1,8 @@
-name: Bot Telegram - Meio-dia (12h)
+name: Bot Telegram - 12h (Meio-dia)
 
 on:
   schedule:
-    # Todo dia às 12h (horário UTC = 15h Brasil)
+    # Todo dia às 12h Brasil (15h UTC)
     - cron: '0 15 * * *'
   workflow_dispatch:
 
@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Enviar Mensagens do Meio-dia
+      - name: Enviar Mensagens das 12h
         run: |
           curl -X POST \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
             -H "Content-Type: application/json" \
-            "${{ secrets.SUPABASE_URL }}/functions/v1/process_scheduled_messages_simple_2025_10_31_15_13"
+            "${{ secrets.SUPABASE_URL }}/functions/v1/process_messages_by_hour_2025_10_31_15_13?hour=12"
