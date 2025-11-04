@@ -1,0 +1,19 @@
+name: Bot Telegram - 20h (Noite)
+
+on:
+  schedule:
+    # Todo dia às 20h Brasil (23h UTC)
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+
+jobs:
+  send-8pm-messages:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Enviar Mensagens das 20h
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            -H "Content-Type: application/json" \
+            "${{ secrets.SUPABASE_URL }}/functions/v1/process_messages_by_hour_2025_10_31_15_13?hour=20"
